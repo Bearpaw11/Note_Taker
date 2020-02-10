@@ -30,13 +30,35 @@
         </div>
       </div>
       <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text">
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+        <input class="note-title" id ="note-title" placeholder="Note Title" maxlength="28" type="text">
+        <textarea class="note-textarea" id = "note-text" placeholder="Note Text"></textarea>
+        <a class="btn btn-primary btn-lg mt-4" id = "save" href="/api/notes" role="button">Save Note</a>
       </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/assets/js/index.js"></script>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#save").on("click", function(event) {
+      event.preventDefault();
+      var newNote = {
+        id: $("#note-title").val().trim(),
+        note: $("#note-text").val().trim(),
+       
+      };
+
+      // Question: What does this code do??
+      $.post("/api/notes", newNote)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding character...");
+        });
+    });
+  </script>
+
+  </script>
 </body>
 
 </html>
