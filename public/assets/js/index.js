@@ -1,4 +1,4 @@
-console.log("javascript loaded")
+
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
